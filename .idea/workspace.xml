@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="102bcd3a-4b4f-4144-9dc8-1d15c1aa76f5" name="Default Changelist" comment="" />
+    <list default="true" id="102bcd3a-4b4f-4144-9dc8-1d15c1aa76f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +14,12 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jSPGICirqDQo4CqZHAKvYxoCdO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,6 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/ProjectComposer/UTSPrakRPL" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -35,7 +44,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603794424096</updated>
-      <workItem from="1603794427999" duration="3306000" />
+      <workItem from="1603794427999" duration="4280000" />
+      <workItem from="1603887847896" duration="1315000" />
+      <workItem from="1603943035577" duration="1271000" />
+      <workItem from="1604030581477" duration="1985000" />
+      <workItem from="1604284597536" duration="6637000" />
     </task>
     <servers />
   </component>
@@ -47,9 +60,17 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="340" y="27" width="703" height="741" key="#PHP/0.27.1366.741@0.27.1366.741" timestamp="1603794942250" />
+    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604030758096">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1604030758096" />
     <state x="478" y="319" width="399" height="164" key="NewPhpFileDialog" timestamp="1603794541958">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="478" y="319" width="399" height="164" key="NewPhpFileDialog/0.27.1366.741@0.27.1366.741" timestamp="1603794541958" />
+    <state x="739" y="453" width="431" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604291072091">
+      <screen x="0" y="128" width="1920" height="952" />
+    </state>
+    <state x="739" y="453" width="431" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.101.1366.768/0.128.1920.952@0.128.1920.952" timestamp="1604291072091" />
   </component>
 </project>

@@ -9,6 +9,58 @@
  *
  * DILARANG COPY-PASTE TANPA SE-IJIN PEMILIK REPOSITORY !!!
  */
+
+class KPR {
+    private $sisa_pinjaman_tetap;
+    private $sisa_pinjaman_dinamis;
+
+    public function __construct(float $sisa_pinjaman)
+    {
+        $this->sisa_pinjaman_tetap = $this->sisa_pinjaman_dinamis = $sisa_pinjaman;
+    }
+
+    /**
+     * @return float
+     */
+    public function angsuranPokok(): float
+    {
+        return $this->getSisaPinjaman() / ((float) $_POST['jangkawaktu'] * 12);
+    }
+
+    /**
+     * @return float
+     */
+    public function angsuranBunga(): float
+    {
+        return $this->getSisaPinjaman() * (((float) $_POST['marginbank'] / 100) / 12);
+    }
+
+    /**
+     * @return float
+     */
+    public function totalAngsuran(): float
+    {
+        return $this->angsuranPokok() + $this->angsuranBunga();
+    }
+
+    /**
+     * @return float
+     */
+    public function getSisaPinjaman(): float
+    {
+        return $this->sisa_pinjaman_tetap;
+    }
+
+    /**
+     * @param float $sisa_pinjaman
+     * @return float
+     */
+    public function setSisaPinjaman(float $sisa_pinjaman): float
+    {
+        return $this->sisa_pinjaman_dinamis -= $sisa_pinjaman;
+    }
+
+}
 ?>
 <!doctype html>
 <html lang="id">
@@ -55,10 +107,12 @@
                         <div class="form-group">
                             <label for="jangkawaktu">Jangka Waktu (Tenor)</label>
                             <input type="number" min="0" class="form-control" id="jangkawaktu" name="jangkawaktu">
+                            <small class="form-text text-muted">(dalam tahun)</small>
                         </div>
                         <div class="form-group">
                             <label for="marginbank">Margin Bank</label>
                             <input type="number" min="0" class="form-control" id="marginbank" name="marginbank">
+                            <small class="form-text text-muted">(%/tahun)</small>
                         </div>
                         <div class="form-group">
                             <label for="perhitunganmargin">Perhitungan Margin</label>
@@ -88,12 +142,14 @@
      *
      * DILARANG COPY-PASTE TANPA SE-IJIN PEMILIK REPOSITORY !!!
      */
-    if (isset($_POST['submit'])): ?>
+    if (isset($_POST['submit'])):
+        $kpr = new KPR(((float) $_POST['hargarumah'] - ((float)$_POST['hargarumah'] * (float) $_POST['uangmuka'] / 100)));
+        ?>
         <div class="modal fade" tabindex="-1" id="hasilkpr">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Data KPR</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -112,7 +168,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row" class="text-right">Uang Muka (DP) :</th>
-                                    <td>Rp.<?= number_format((int) $_POST['hargarumah'] * (int) $_POST['uangmuka'] / 100) ?></td>
+                                    <td>Rp.<?= number_format((float) $_POST['hargarumah'] * (float) $_POST['uangmuka'] / 100) ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="text-right">Jangka Waktu :</th>
@@ -127,10 +183,59 @@
                                     <td><b><?= ($_POST['perhitunganmargin']) ?></b></td>
                                 </tr>
                         </table>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" colspan="2">KPR Anda</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-right">Sisa Pinjaman :</th>
+                                    <td>Rp.<?= number_format($kpr->getSisaPinjaman()) ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-right">Angsuran Pokok per Bulan :</th>
+                                    <td>Rp.<?= number_format($kpr->angsuranPokok()) ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-right">Angsuran bunga per Bulan :</th>
+                                    <td>Rp.<?= number_format($kpr->angsuranBunga()); ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-right">Total Angsuran per Bulan :</th>
+                                    <td>Rp.<?= number_format($kpr->totalAngsuran()) ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-right"> Total periode :</th>
+                                    <td><?= (float) $_POST['jangkawaktu'] * 12 ?> bulan</td>
+                                </tr>
+                        </table>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Bulan</th>
+                                    <th scope="col">Angsuran Bunga</th>
+                                    <th scope="col">Angsuran Pokok</th>
+                                    <th scope="col">Total Angsuran</th>
+                                    <th scope="col">Sisa Pinjaman</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php for($i = 0; $i <= ((float) $_POST['jangkawaktu'] * 12); $i++): ?>
+                                <tr>
+                                    <th scope="row" class="text-right"><?= $i ?></th>
+                                    <td>Rp.<?= number_format($kpr->angsuranBunga()) ?></td>
+                                    <td>Rp.<?= number_format($kpr->angsuranPokok()) ?></td>
+                                    <td>Rp.<?= number_format($kpr->totalAngsuran()) ?></td>
+                                    <td>Rp.<?= ($i >= 1) ? number_format($kpr->setSisaPinjaman($kpr->angsuranPokok()))
+                                            : number_format($kpr->getSisaPinjaman()) ?></td>
+                                </tr>
+                            <?php endfor ?>
+                        </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
