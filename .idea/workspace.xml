@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102bcd3a-4b4f-4144-9dc8-1d15c1aa76f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
       <workItem from="1603887847896" duration="1315000" />
       <workItem from="1603943035577" duration="1271000" />
       <workItem from="1604030581477" duration="1985000" />
-      <workItem from="1604284597536" duration="6637000" />
+      <workItem from="1604284597536" duration="9461000" />
     </task>
     <servers />
   </component>
@@ -72,5 +70,9 @@
       <screen x="0" y="128" width="1920" height="952" />
     </state>
     <state x="739" y="453" width="431" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.101.1366.768/0.128.1920.952@0.128.1920.952" timestamp="1604291072091" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1604291524633">
+      <screen x="0" y="128" width="1920" height="952" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/1920.101.1366.768/0.128.1920.952@0.128.1920.952" timestamp="1604291524633" />
   </component>
 </project>

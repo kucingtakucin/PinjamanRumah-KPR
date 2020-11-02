@@ -14,6 +14,10 @@ class KPR {
     private $sisa_pinjaman_tetap;
     private $sisa_pinjaman_dinamis;
 
+    /**
+     * KPR constructor.
+     * @param float $sisa_pinjaman
+     */
     public function __construct(float $sisa_pinjaman)
     {
         $this->sisa_pinjaman_tetap = $this->sisa_pinjaman_dinamis = $sisa_pinjaman;
@@ -101,17 +105,17 @@ class KPR {
                         </div>
                         <div class="form-group">
                             <label for="uangmuka">Uang Muka (DP)</label>
-                            <input type="number" min="0" class="form-control" id="uangmuka" name="uangmuka">
+                            <input type="number" min="30" max="100" class="form-control" id="uangmuka" name="uangmuka">
                             <small class="form-text text-muted">(persen dari harga rumah)</small>
                         </div>
                         <div class="form-group">
                             <label for="jangkawaktu">Jangka Waktu (Tenor)</label>
-                            <input type="number" min="0" class="form-control" id="jangkawaktu" name="jangkawaktu">
+                            <input type="number" min="1" max="15" class="form-control" id="jangkawaktu" name="jangkawaktu">
                             <small class="form-text text-muted">(dalam tahun)</small>
                         </div>
                         <div class="form-group">
                             <label for="marginbank">Margin Bank</label>
-                            <input type="number" min="0" class="form-control" id="marginbank" name="marginbank">
+                            <input type="number" min="5" max="10" class="form-control" id="marginbank" name="marginbank">
                             <small class="form-text text-muted">(%/tahun)</small>
                         </div>
                         <div class="form-group">
